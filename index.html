@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6b1020" />
+  <title>Subash & Ramya | Wedding Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+Tamil:wght@400;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --maroon: #681122;
+      --deep-maroon: #3d0712;
+      --gold: #d8a93b;
+      --light-gold: #f8e7aa;
+      --cream: #fff8e8;
+      --sandal: #ead4a2;
+      --leaf: #315c32;
+      --orange: #df7a21;
+      --white: #fffdf7;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--deep-maroon);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(216,169,59,.13), transparent 25rem),
+        radial-gradient(circle at 88% 28%, rgba(104,17,34,.08), transparent 28rem),
+        var(--cream);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+
+    .petal {
+      position: fixed;
+      z-index: 1;
+      width: 13px;
+      height: 19px;
+      border-radius: 90% 10% 90% 10%;
+      background: linear-gradient(135deg, #f4bd39, #cf651e);
+      opacity: .45;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
+
+    .petal:nth-child(1) { left: 7%; animation-duration: 15s; animation-delay: -4s; }
+    .petal:nth-child(2) { left: 28%; animation-duration: 19s; animation-delay: -11s; transform: scale(.7); }
+    .petal:nth-child(3) { left: 67%; animation-duration: 17s; animation-delay: -7s; }
+    .petal:nth-child(4) { left: 91%; animation-duration: 21s; animation-delay: -14s; transform: scale(.8); }
+
+    @keyframes fall {
+      from { top: -40px; transform: translateX(0) rotate(0deg); }
+      to { top: 105vh; transform: translateX(70px) rotate(420deg); }
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 2rem 1.25rem;
+      background:
+        linear-gradient(rgba(50, 3, 12, .57), rgba(50, 3, 12, .72)),
+        url("https://images.unsplash.com/photo-1604601004001-ef8b1c3ccf6e?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      z-index: -1;
+      border: 1px solid rgba(248, 231, 170, .55);
+    }
+
+    .hero::after {
+      inset: 29px;
+      border-color: rgba(248, 231, 170, .22);
+    }
+
+    .hero-card {
+      width: min(680px, 100%);
+      text-align: center;
+      color: var(--white);
+      padding: 2.4rem 1.2rem;
+      animation: reveal 1.2s ease both;
+    }
+
+    .eyebrow {
+      margin: 0 0 .75rem;
+      color: var(--light-gold);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(.75rem, 2vw, .9rem);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .om {
+      display: block;
+      color: var(--light-gold);
+      font-family: "Noto Serif Tamil", serif;
+      font-size: 2.25rem;
+      line-height: 1;
+      margin-bottom: .8rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3rem, 12vw, 6.7rem);
+      font-weight: 600;
+      line-height: .93;
+      text-shadow: 0 3px 16px rgba(0,0,0,.35);
+    }
+
+    h1 span {
+      display: block;
+      margin: .4rem auto;
+      font-family: "Cormorant Garamond", serif;
+      color: var(--light-gold);
+      font-size: .52em;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .date-line {
+      display: inline-block;
+      margin: 1.55rem 0 .75rem;
+      padding: .65rem 1rem;
+      border-top: 1px solid var(--light-gold);
+      border-bottom: 1px solid var(--light-gold);
+      color: var(--light-gold);
+      font-size: clamp(1.1rem, 3vw, 1.45rem);
+      letter-spacing: .05em;
+    }
+
+    .hero-note {
+      max-width: 430px;
+      margin: 0 auto;
+      font-size: 1.25rem;
+      line-height: 1.35;
+    }
+
+    .scroll-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      margin-top: 2rem;
+      color: var(--white);
+      font-size: 1rem;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .scroll-link::after {
+      content: "↓";
+      font-size: 1.35rem;
+      animation: bob 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+      50% { transform: translateY(5px); }
+    }
+
+    .section {
+      position: relative;
+      width: min(1100px, calc(100% - 2.25rem));
+      margin: 0 auto;
+      padding: 4.5rem 0;
+    }
+
+    .section-title {
+      margin: 0 0 .65rem;
+      color: var(--maroon);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.1rem, 6vw, 3.25rem);
+      font-weight: 600;
+      line-height: 1;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      margin: 0 auto 2.2rem;
+      max-width: 650px;
+      color: #744331;
+      font-size: 1.25rem;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .kolam {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      margin: 0 auto 1.2rem;
+      color: var(--gold);
+      font-size: 1.25rem;
+      letter-spacing: .1em;
+    }
+
+    .kolam::before,
+    .kolam::after {
+      content: "✦";
+      font-size: .8em;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .6rem;
+      max-width: 620px;
+      margin: 2rem auto 0;
+    }
+
+    .countdown-item {
+      padding: .9rem .3rem;
+      background: var(--white);
+      border: 1px solid rgba(216,169,59,.6);
+      box-shadow: 0 8px 22px rgba(82,31,18,.08);
+      text-align: center;
+    }
+
+    .countdown-number {
+      display: block;
+      color: var(--maroon);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.55rem, 7vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .countdown-label {
+      display: block;
+      margin-top: .35rem;
+      color: #835a34;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .ceremony-grid {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .event-card {
+      position: relative;
+      overflow: hidden;
+      padding: 2rem 1.5rem;
+      background: var(--white);
+      border: 1px solid rgba(216,169,59,.55);
+      box-shadow: 0 12px 32px rgba(80,24,17,.1);
+      text-align: center;
+    }
+
+    .event-card::before {
+      content: "❋";
+      position: absolute;
+      top: .45rem;
+      right: .8rem;
+      color: rgba(216,169,59,.42);
+      font-size: 2rem;
+    }
+
+    .event-icon {
+      margin-bottom: .8rem;
+      font-size: 2.1rem;
+    }
+
+    .event-card h3 {
+      margin: 0;
+      color: var(--maroon);
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .event-card p {
+      margin: .55rem 0 0;
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .event-card strong { color: #8c4a20; }
+
+    .timeline {
+      position: relative;
+      max-width: 760px;
+      margin: 2.5rem auto 0;
+      padding-left: 1.4rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: .55rem;
+      bottom: .55rem;
+      left: 6px;
+      width: 2px;
+      background: linear-gradient(var(--gold), var(--maroon), var(--gold));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding: 1.2rem 1.2rem 1.2rem 1.5rem;
+      background: rgba(255,253,247,.82);
+      border-left: 3px solid var(--gold);
+      box-shadow: 0 6px 18px rgba(80,24,17,.06);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 1.45rem;
+      left: -1.95rem;
+      width: 12px;
+      height: 12px;
+      border: 3px solid var(--cream);
+      border-radius: 50%;
+      background: var(--maroon);
+    }
+
+    .timeline-date {
+      display: block;
+      color: #a05d1e;
+      font-size: .92rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .timeline-item h3 {
+      margin: .2rem 0;
+      color: var(--maroon);
+      font-family: "Playfair Display", serif;
+      font-size: 1.45rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      font-size: 1.12rem;
+    }
+
+    .venue-wrap {
+      display: grid;
+      gap: 1.3rem;
+      align-items: stretch;
+      margin-top: 2rem;
+    }
+
+    .venue-image {
+      min-height: 260px;
+      background:
+        linear-gradient(rgba(57, 15, 17, .15), rgba(57, 15, 17, .15)),
+        url("https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=85")
+        center/cover;
+    }
+
+    .venue-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      background: var(--maroon);
+      color: var(--white);
+    }
+
+    .venue-copy h2 {
+      margin: 0 0 .8rem;
+      color: var(--light-gold);
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+    }
+
+    .venue-copy p {
+      margin: 0 0 .55rem;
+      font-size: 1.2rem;
+      line-height: 1.35;
+    }
+
+    .map-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      gap: .5rem;
+      margin-top: 1rem;
+      padding: .78rem 1.1rem;
+      background: var(--gold);
+      color: var(--deep-maroon);
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .map-button:hover {
+      background: var(--light-gold);
+      transform: translateY(-2px);
+    }
+
+    .blessing {
+      position: relative;
+      padding: 5rem 1.5rem;
+      overflow: hidden;
+      background: var(--deep-maroon);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .blessing::before {
+      content: "❖  ✦  ❖";
+      position: absolute;
+      top: .8rem;
+      left: 50%;
+      color: rgba(248,231,170,.5);
+      font-size: 1.15rem;
+      letter-spacing: .7rem;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    .blessing p {
+      max-width: 670px;
+      margin: 0 auto;
+      color: var(--light-gold);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.6rem, 5vw, 2.45rem);
+      font-style: italic;
+      line-height: 1.3;
+    }
+
+    .footer-note {
+      margin-top: 1.2rem !important;
+      color: var(--white) !important;
+      font-family: "Cormorant Garamond", serif !important;
+      font-size: 1.16rem !important;
+      font-style: normal !important;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (min-width: 700px) {
+      .ceremony-grid { grid-template-columns: repeat(2, 1fr); }
+      .venue-wrap { grid-template-columns: 1fr 1fr; }
+      .venue-image { min-height: 380px; }
+      .event-card { padding: 2.4rem 2rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+  <span class="petal"></span>
+
+  <header class="hero">
+    <div class="hero-card">
+      <span class="om">ॐ</span>
+      <p class="eyebrow">With the blessings of our families</p>
+      <h1>D. Subash <span>&amp;</span> M. Ramya</h1>
+      <div class="date-line">Sunday · October 25, 2026</div>
+      <p class="hero-note">Request the pleasure of your gracious presence as they begin their beautiful journey together.</p>
+      <a class="scroll-link" href="#celebration">Celebrate with us</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section reveal" id="celebration">
+      <div class="kolam">✦ திருமணம் ✦</div>
+      <h2 class="section-title">Save Our Date</h2>
+      <p class="section-subtitle">A new chapter begins at the auspicious hour of dawn.</p>
+
+      <div class="countdown" aria-label="Countdown to wedding">
+        <div class="countdown-item"><span class="countdown-number" id="days">--</span><span class="countdown-label">Days</span></div>
+        <div class="countdown-item"><span class="countdown-number" id="hours">--</span><span class="countdown-label">Hours</span></div>
+        <div class="countdown-item"><span class="countdown-number" id="minutes">--</span><span class="countdown-label">Minutes</span></div>
+        <div class="countdown-item"><span class="countdown-number" id="seconds">--</span><span class="countdown-label">Seconds</span></div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2 class="section-title">The Sacred Ceremony</h2>
+      <p class="section-subtitle">Join us for a morning woven with tradition, love, and blessings.</p>
+
+      <div class="ceremony-grid">
+        <article class="event-card">
+          <div class="event-icon">🪔</div>
+          <h3>Wedding Ceremony</h3>
+          <p><strong>October 25, 2026</strong></p>
+          <p>4:30 AM – 6:30 AM</p>
+          <p>Kottai Kovil, Dharmapuri</p>
+        </article>
+
+        <article class="event-card">
+          <div class="event-icon">🌼</div>
+          <h3>Wedding Reception</h3>
+          <p><strong>October 25, 2026</strong></p>
+          <p>After 6:30 AM</p>
+          <p>Boopathy Marriage Hall</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="kolam">✦ நிகழ்வுகள் ✦</div>
+      <h2 class="section-title">Wedding Celebrations</h2>
+      <p class="section-subtitle">We would be delighted to share every memorable moment with you.</p>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <span class="timeline-date">October 24 · Evening · Around 7:30 PM</span>
+          <h3>Groom &amp; Bride Reception</h3>
+          <p>An evening of joyful greetings, family, and celebration.</p>
+        </article>
+
+        <article class="timeline-item">
+          <span class="timeline-date">October 25 · Early Morning · 4:30–6:30 AM</span>
+          <h3>Wedding Ceremony</h3>
+          <p>The sacred union at Kottai Kovil, Dharmapuri.</p>
+        </article>
+
+        <article class="timeline-item">
+          <span class="timeline-date">October 25 · Morning · After 6:30 AM</span>
+          <h3>Wedding Reception</h3>
+          <p>Join us for breakfast and blessings at Boopathy Marriage Hall.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="kolam">✦ வருகை தரவும் ✦</div>
+      <h2 class="section-title">Reception Venue</h2>
+
+      <div class="venue-wrap">
+        <div class="venue-image" role="img" aria-label="Traditional South Indian temple architecture"></div>
+        <div class="venue-copy">
+          <h2>Boopathy Marriage Hall</h2>
+          <p>Wedding Reception</p>
+          <p>October 25, 2026<br />After 6:30 AM</p>
+          <a class="map-button" href="https://maps.app.goo.gl/sMMWVNHVq7KH5bdu8" target="_blank" rel="noopener noreferrer">
+            View on Google Maps ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="blessing">
+    <p>Your presence is our blessing.</p>
+    <p class="footer-note">With love and gratitude,<br />D. Subash &amp; M. Ramya</p>
+  </footer>
+
+  <script>
+    const weddingDate = new Date("2026-10-25T04:30:00+05:30").getTime();
+
+    function updateCountdown() {
+      const difference = weddingDate - Date.now();
+
+      if (difference <= 0) {
+        document.querySelector(".countdown").innerHTML =
+          '<div class="countdown-item" style="grid-column: 1 / -1;"><span class="countdown-number" style="font-size:1.8rem;">The celebration has begun!</span></div>';
+        return;
+      }
+
+      const units = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / (1000 * 60)) % 60),
+        seconds: Math.floor((difference / 1000) % 60)
+      };
+
+      Object.entries(units).forEach(([id, value]) => {
+        document.getElementById(id).textContent = String(value).padStart(2, "0");
+      });
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
