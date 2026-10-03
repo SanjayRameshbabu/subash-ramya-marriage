@@ -116,7 +116,7 @@
       margin: 0 0 .8rem;
       color: var(--pale-gold);
       font-family: "Playfair Display", serif;
-      font-size: clamp(.68rem, 2vw, .9rem);
+      font-size: clamp(.66rem, 2vw, .88rem);
       letter-spacing: .2em;
       text-transform: uppercase;
     }
@@ -138,20 +138,24 @@
       line-height: 1.35;
     }
 
-    /* COVER */
+    /* COVER PAGE */
     .cover {
       background:
-        linear-gradient(rgba(48, 3, 12, .56), rgba(48, 3, 12, .82)),
+        linear-gradient(rgba(48, 3, 12, .55), rgba(48, 3, 12, .84)),
         url("https://images.unsplash.com/photo-1604601004001-ef8b1c3ccf6e?auto=format&fit=crop&w=1800&q=85")
         center/cover;
     }
 
+    .cover .content {
+      max-width: 650px;
+    }
+
     .om {
       display: block;
-      margin-bottom: .85rem;
+      margin-bottom: .65rem;
       color: var(--pale-gold);
       font-family: "Noto Serif Tamil", serif;
-      font-size: 2.45rem;
+      font-size: 2.35rem;
       line-height: 1;
     }
 
@@ -159,7 +163,7 @@
       margin: 0;
       color: var(--white);
       font-family: "Playfair Display", serif;
-      font-size: clamp(3.15rem, 13vw, 7rem);
+      font-size: clamp(2.8rem, 11vw, 6.5rem);
       font-weight: 600;
       line-height: .9;
       text-shadow: 0 3px 16px rgba(0, 0, 0, .35);
@@ -167,7 +171,7 @@
 
     .couple-names span {
       display: block;
-      margin: .35rem 0;
+      margin: .3rem 0;
       color: var(--pale-gold);
       font-family: "Cormorant Garamond", serif;
       font-size: .53em;
@@ -177,24 +181,59 @@
 
     .date-banner {
       display: inline-block;
-      margin-top: 1.6rem;
-      padding: .65rem 1rem;
+      margin-top: 1.25rem;
+      padding: .55rem .9rem;
       border-top: 1px solid var(--pale-gold);
       border-bottom: 1px solid var(--pale-gold);
       color: var(--pale-gold);
-      font-size: clamp(1rem, 4vw, 1.4rem);
+      font-size: clamp(.95rem, 3.8vw, 1.35rem);
       letter-spacing: .06em;
     }
 
     .cover-message {
       max-width: 435px;
-      margin: 1.2rem auto 0;
+      margin: .9rem auto 0;
       color: var(--white);
-      font-size: 1.2rem;
-      line-height: 1.32;
+      font-size: 1.1rem;
+      line-height: 1.28;
     }
 
-    /* WEDDING */
+    /* COUNTDOWN */
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .45rem;
+      width: min(430px, 100%);
+      margin: 1.2rem auto 0;
+    }
+
+    .countdown-item {
+      padding: .62rem .2rem;
+      border: 1px solid rgba(248, 232, 173, .62);
+      background: rgba(51, 4, 13, .42);
+      box-shadow: inset 0 0 18px rgba(255, 223, 134, .06);
+    }
+
+    .countdown-number {
+      display: block;
+      color: var(--pale-gold);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.25rem, 5.2vw, 2rem);
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .countdown-label {
+      display: block;
+      margin-top: .28rem;
+      color: var(--white);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(.56rem, 2.3vw, .7rem);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    /* WEDDING PAGE */
     .wedding {
       background:
         linear-gradient(135deg, rgba(56, 7, 17, .95), rgba(104, 18, 37, .8)),
@@ -233,7 +272,7 @@
 
     .detail-card strong { color: #914a1b; }
 
-    /* RECEPTION */
+    /* RECEPTION PAGE */
     .reception {
       background:
         linear-gradient(rgba(61, 7, 16, .8), rgba(61, 7, 16, .92)),
@@ -283,7 +322,7 @@
       transform: translateY(-3px);
     }
 
-    /* SCHEDULE */
+    /* SCHEDULE PAGE */
     .schedule {
       color: var(--deep-maroon);
       background:
@@ -361,7 +400,7 @@
       line-height: 1.2;
     }
 
-    /* BLESSINGS */
+    /* BLESSINGS PAGE */
     .blessings {
       background:
         linear-gradient(rgba(55, 4, 13, .8), rgba(55, 4, 13, .9)),
@@ -457,7 +496,7 @@
       transform: scale(1.45);
     }
 
-    /* SILK CURTAIN TRANSITION */
+    /* SILK FOLDED CURTAIN TRANSITION */
     .curtain-stage {
       position: fixed;
       z-index: 20;
@@ -469,9 +508,7 @@
       visibility: hidden;
     }
 
-    .curtain-stage.running {
-      visibility: visible;
-    }
+    .curtain-stage.running { visibility: visible; }
 
     .curtain {
       position: relative;
@@ -632,6 +669,7 @@
 <body>
   <div class="invitation" id="invitation">
 
+    <!-- Page 1: Cover + countdown -->
     <section class="page cover active">
       <div class="content">
         <span class="om">ॐ</span>
@@ -641,11 +679,32 @@
         <p class="cover-message">
           Together with our families, we invite you to celebrate the beginning of our forever.
         </p>
+
+        <div class="countdown" id="countdown" aria-label="Countdown to the wedding">
+          <div class="countdown-item">
+            <span class="countdown-number" id="days">--</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="hours">--</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="minutes">--</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="seconds">--</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
       </div>
+
       <button class="arrow down" type="button" aria-label="View wedding ceremony"></button>
       <span class="page-counter">01 / 05</span>
     </section>
 
+    <!-- Page 2: Wedding ceremony -->
     <section class="page wedding">
       <div class="content">
         <p class="ornament">✦ ✦ ✦</p>
@@ -661,10 +720,12 @@
           <p>Dharmapuri</p>
         </div>
       </div>
+
       <button class="arrow down" type="button" aria-label="View wedding reception"></button>
       <span class="page-counter">02 / 05</span>
     </section>
 
+    <!-- Page 3: Reception -->
     <section class="page reception">
       <div class="leaf left"></div>
       <div class="leaf right"></div>
@@ -687,10 +748,12 @@
           </a>
         </div>
       </div>
+
       <button class="arrow down" type="button" aria-label="View wedding schedule"></button>
       <span class="page-counter">03 / 05</span>
     </section>
 
+    <!-- Page 4: Schedule -->
     <section class="page schedule">
       <div class="content">
         <p class="ornament">✦ நிகழ்வுகள் ✦</p>
@@ -718,10 +781,12 @@
           </article>
         </div>
       </div>
+
       <button class="arrow down" type="button" aria-label="View blessing message"></button>
       <span class="page-counter">04 / 05</span>
     </section>
 
+    <!-- Page 5: Blessings -->
     <section class="page blessings">
       <div class="content">
         <span class="om">ॐ</span>
@@ -732,6 +797,7 @@
         </p>
         <p class="from">With love,<br />D. Subash &amp; M. Ramya</p>
       </div>
+
       <button class="arrow up" type="button" aria-label="Return to previous page"></button>
       <span class="page-counter">05 / 05</span>
     </section>
@@ -755,13 +821,42 @@
     const dots = [...document.querySelectorAll(".dot")];
     const invitation = document.getElementById("invitation");
     const curtainStage = document.getElementById("curtainStage");
+    const countdown = document.getElementById("countdown");
 
     let currentPage = 0;
     let isTransitioning = false;
     let touchStartY = 0;
 
+    const weddingTime = new Date("2026-10-25T04:30:00+05:30").getTime();
+
     const wait = (milliseconds) =>
       new Promise((resolve) => setTimeout(resolve, milliseconds));
+
+    function updateCountdown() {
+      const remainingTime = weddingTime - Date.now();
+
+      if (remainingTime <= 0) {
+        countdown.innerHTML = `
+          <div class="countdown-item" style="grid-column: 1 / -1;">
+            <span class="countdown-number" style="font-size:1.35rem;">The celebration has begun!</span>
+          </div>
+        `;
+        return;
+      }
+
+      const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((remainingTime / (1000 * 60)) % 60);
+      const seconds = Math.floor((remainingTime / 1000) % 60);
+
+      document.getElementById("days").textContent = String(days).padStart(2, "0");
+      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
     async function goToPage(targetIndex) {
       const nextPage = Math.max(0, Math.min(targetIndex, pages.length - 1));
@@ -770,11 +865,9 @@
 
       isTransitioning = true;
 
-      /* Softly gather the curtains in the centre */
       curtainStage.className = "curtain-stage running closing";
       await wait(720);
 
-      /* Change the invitation page while curtains are closed */
       pages[currentPage].classList.remove("active");
       pages[nextPage].classList.add("active");
 
@@ -783,7 +876,6 @@
 
       currentPage = nextPage;
 
-      /* Open folded silk curtains to reveal the next page */
       curtainStage.className = "curtain-stage running opening";
       await wait(1170);
 
